@@ -72,9 +72,13 @@ def process_file(file_path, output_dir):
         filtered_df['Old CMS Edit URL'] = 'https://sh-albarrak.com/admin/posts/fatawa/' + \
             filtered_df['Slug'] + '/update'
 
+        # Add 'Old Website URL' column
+        filtered_df['Old Website URL'] = 'https://sh-albarrak.com/article/' + \
+            filtered_df['Slug']
+
         # Select only the required columns for output
-        output_columns = ['Title', 'Content', 'وسوم داخلية',
-                          'Slug', 'سؤال الفتوى', 'جواب الفتوى', 'Old CMS Edit URL']
+        output_columns = ['Title', 'Content', 'وسوم داخلية', 'Slug',
+                          'سؤال الفتوى', 'جواب الفتوى', 'Old CMS Edit URL', 'Old Website URL']
         filtered_df = filtered_df[output_columns]
 
         # Write to CSV in the 'out' folder, maintaining original file name
